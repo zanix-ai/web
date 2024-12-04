@@ -210,11 +210,11 @@
       color: #fff;
       cursor: pointer;
       text-decoration: none;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
     .icon:hover {
-      color: #ff6600;
+      color: #45a049;
     }
 
     /* Minecraft Button */
@@ -239,7 +239,7 @@
       margin-top: 20px;
       text-align: center;
       color: #a3a3a3;
-      font-size: 0.9rem;
+      font-size: 1rem;
       width: 100%;
     }
 
@@ -250,6 +250,13 @@
 
     footer a:hover {
       text-decoration: underline;
+    }
+
+    /* New Icon 💠 Positioning */
+    .new-icon {
+      display: block;  /* Make sure it is a block-level element */
+      text-align: center;
+      margin-top: 10px; /* Add margin-top to create space between Minecraft icon and 💠 */
     }
   </style>
 </head>
@@ -267,25 +274,26 @@
       <!-- Icons -->
       <div class="icons">
         <!-- Icon Globe Left -->
-        <a href="#" class="icon" onclick="confirmNavigation('https://zanix.my.id')">🌐</a>
+        <a href="#" class="icon" onclick="confirmNavigation('https://my.zanix.my.id')">🌐</a>
         
         <!-- Icon Minecraft (with Image) -->
         <span class="minecraft-button icon" onclick="confirmMinecraftServer()">
           <img src="https://minecraft.wiki/images/Bedrock_Edition_Google_Play_icon_2.png?22dac&format=original" alt="Minecraft" style="width: 30px; height: 30px; vertical-align: middle;">
         </span>
-        
+
         <!-- Icon Globe Right -->
-        <a href="#" class="icon" onclick="confirmNavigation('https://936.my.id')">🌐</a>
+        <a href="#" class="icon" onclick="confirmNavigation('https://my.936.my.id')">🌐</a>
       </div>
+
+      <!-- New Icon 💠 Below Minecraft -->
+      <a href="#" class="icon new-icon" onclick="confirmNavigation('https://m.zanix.online')">💠</a>
     </div>
 
     <!-- Footer with Copyright -->
     <footer>
-      <p>&copy; <span id="current-year"></span> <a href="https://zanix.online" target="_blank">Zanix</a>. All Rights Reserved.</p>
+      <p>&copy; <span id="current-year"></span> <a href="https://m.zanix.online" target="_blank">ZANIX | Free to Use, </a><a href="https://m.zanix.online" target="_blank">Credit to Zanix | </a>. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0 License</a></p>
     </footer>
   </div>
-
-  <!-- Falling Particles Effect (Removed) -->
 
   <!-- Confirm Navigation and Minecraft Server -->
   <script>
@@ -299,7 +307,7 @@
     // Function for Confirm Minecraft Server Addition (Minecraft Icon)
     function confirmMinecraftServer() {
       if (confirm("Are you sure you want to add this server to Minecraft?")) {
-        window.location.href = "minecraft://?addExternalServer=ZanixServer|play.zanix.online:19132";
+        window.location.href = "minecraft://?addExternalServer=Zanix%20Server";
       }
     }
 
