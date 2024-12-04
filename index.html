@@ -41,6 +41,95 @@
       }
     }
 
+    /* Salju */
+    .snowflake {
+      position: fixed;
+      top: -190px;
+      color: white;
+      font-size: 2rem;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fall 10s linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+
+    /* Lampu Natal */
+    .christmas-lights {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .light {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: red;
+      animation: blink 1.5s infinite alternate;
+    }
+
+    .light:nth-child(1) {
+      background-color: red;
+      animation-delay: 0s;
+    }
+
+    .light:nth-child(2) {
+      background-color: green;
+      animation-delay: 0.3s;
+    }
+
+    .light:nth-child(3) {
+      background-color: yellow;
+      animation-delay: 0.6s;
+    }
+
+    .light:nth-child(4) {
+      background-color: blue;
+      animation-delay: 0.9s;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Kembang Api */
+    .firework {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ff6600;
+      animation: explode 1.5s infinite;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(3);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+
     /* Container */
     .container {
       display: flex;
@@ -93,7 +182,7 @@
       margin-bottom: 20px;
     }
 
-    /* Email Button */
+    /* MAIN WEB Button */
     .email-button {
       background-color: #ff6600;
       color: white;
@@ -172,8 +261,8 @@
       <p class="subtitle">Game Developer</p>
       <p class="status">I Am Good</p>
       
-      <!-- Email Button with mailto link -->
-      <a href="mailto:zanix603@gmail.com" class="email-button">Email</a>
+      <!-- MAIN WEB Button -->
+      <a href="https://zanix.online" class="email-button">MAIN WEB</a>
 
       <!-- Icons -->
       <div class="icons">
@@ -189,7 +278,7 @@
         <a href="#" class="icon" onclick="confirmNavigation('https://936.my.id')">🌐</a>
       </div>
     </div>
-    
+
     <!-- Footer with Copyright -->
     <footer>
       <p>&copy; <span id="current-year"></span> <a href="https://zanix.online" target="_blank">Zanix</a>. All Rights Reserved.</p>
@@ -197,7 +286,7 @@
   </div>
 
   <!-- Falling Particles Effect (Removed) -->
-  
+
   <!-- Confirm Navigation and Minecraft Server -->
   <script>
     // Function for Confirm Navigation (Globe Icons)
@@ -216,6 +305,44 @@
 
     // Set the current year in the footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Snowflakes function
+    function createSnowflakes() {
+      const numberOfSnowflakes = 25;
+      const snowContainer = document.body;
+
+      for (let i = 0; i < numberOfSnowflakes; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.textContent = ' ❄️ '; // Snow symbol
+
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+        snowflake.style.animationDelay = `${Math.random() * 10}s`;
+        snowflake.style.fontSize = `${Math.random() * 1.5 + 1}rem`;
+
+        snowContainer.appendChild(snowflake);
+      }
+    }
+
+    // Fireworks function
+    function createFireworks() {
+      const firework = document.createElement('div');
+      firework.classList.add('firework');
+
+      firework.style.top = `${Math.random() * 100}vh`;
+      firework.style.left = `${Math.random() * 100}vw`;
+
+      document.body.appendChild(firework);
+
+      setTimeout(() => firework.remove(), 1500);
+    }
+
+    // Start effects
+    window.onload = () => {
+      createSnowflakes();
+      setInterval(createFireworks, 2000);
+    };
   </script>
 </body>
 </html>
